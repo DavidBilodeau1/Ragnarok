@@ -14,7 +14,7 @@ public class Controller : MonoBehaviour
     float lockPos = 0;
     private Animator anim;
     private Rigidbody2D rb2d;
-    public float jumpSpeed = 0.5f;
+    public float jumpSpeed = 50f;
 
     // Use this for initialization
     void Awake()
@@ -29,12 +29,12 @@ public class Controller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             anim.SetTrigger("jump");
-            transform.Translate(Vector2.up * jumpSpeed * Time.deltaTime, Space.World);
-            
+    rb2d.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+
         }
     }
 
-    void FixedUpdate()
+        void FixedUpdate()
     {
         float h = Input.GetAxis("Horizontal");
 
