@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Controller : MonoBehaviour
 {
-
+//partie de mouvement du personnage
     [HideInInspector]
     public bool facingRight = true;
     [HideInInspector]
@@ -16,6 +16,9 @@ public class Controller : MonoBehaviour
     private Rigidbody2D rb2d;
     public float jumpSpeed = 50f;
 
+
+
+
     // Use this for initialization
     void Awake()
     {
@@ -26,12 +29,13 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //le saut du personnage
         if (Input.GetKeyDown(KeyCode.Space))
         {
             anim.SetTrigger("jump");
-    rb2d.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
-
+            rb2d.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
         }
+
     }
 
         void FixedUpdate()
